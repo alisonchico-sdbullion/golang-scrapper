@@ -17,7 +17,7 @@ As the purporse of this code is to apply for a exam i detailed additional roadma
 - After that you will need to apply ecr, s3 bucket and dynamodb tables mannualy, as this is necessary for the enablement of terraform and so the pipeline be able to push the build artefact, to do that you need to install terraform on your computer (latest version) and apply the following targets:
   - terraform init
   - terraform apply -target=module.s3_tf-state.aws_s3_bucket.this[0]
-  - terraform apply -target=aws_ecr_repository.ipfs
+  - terraform apply -target=aws_ecr_repository.solo
   - terraform apply -target=aws_dynamodb_table.terraform_locks
 - Uncomment the code on backend.tf  
 - By end execute terraform init --migrate-state that will move your state to the bucket, following this approachs you can trigger the pipeline.

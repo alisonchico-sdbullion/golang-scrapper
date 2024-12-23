@@ -73,14 +73,6 @@ module "ecs_service" {
     }
   }
   task_exec_iam_statements = {
-    secrets_access = {
-      effect  = "Allow"
-      actions = ["secretsmanager:GetSecretValue"]
-      resources = [
-        "${aws_secretsmanager_secret.db_connection_details.arn}",
-        "${module.db.db_instance_master_user_secret_arn}"
-      ]
-    }
     cloudwatch_logs_access = {
       effect = "Allow"
       actions = [

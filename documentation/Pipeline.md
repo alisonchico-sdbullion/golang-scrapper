@@ -19,7 +19,7 @@ env:
 
 `  `ENV\_PREFIX: prd
 
-`  `ECR: ipfs
+`  `ECR: solo
 
 - **AWS\_REGION**: Specifies the region where AWS resources will be managed.
 - **ENV\_PREFIX**: Defines the environment prefix (e.g., production).
@@ -94,9 +94,9 @@ To provision and manage the required AWS infrastructure, such as S3 buckets, Dyn
 
 aws s3 ls s3://iac-tfstate-blockparty-exam-alison || echo "S3 bucket does not exist"
 
-aws ecr describe-repositories --repository-names ipfs || echo "ECR repository does not exist"
+aws ecr describe-repositories --repository-names solo || echo "ECR repository does not exist"
 
-aws dynamodb describe-table --table-name terraform\_ipfs || echo "DynamoDB table does not exist"
+aws dynamodb describe-table --table-name terraform\_solo || echo "DynamoDB table does not exist"
 
 - **Backend Configuration**:
 

@@ -34,8 +34,6 @@
 
 *WORKDIR /app*
 
-*COPY --from=builder /app/data/ipfs\_cids.csv ./data/ipfs\_cids.csv*
-
 *COPY --from=builder /app/go-app ./*
 
 *EXPOSE 8080*
@@ -47,7 +45,6 @@
 - **Minimal Base Image**: Uses scratch for a lightweight, secure runtime environment.
 - **Includes CA Certificates**: Copies certificates for secure HTTPS communication.
 - **Application Files**:
-  - ipfs\_cids.csv is copied for runtime use.
   - go-app is the main application binary.
 - **Expose and Run**:
   - Exposes port 8080.

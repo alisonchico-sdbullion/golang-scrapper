@@ -1,11 +1,11 @@
 data "aws_caller_identity" "current" {}
 data "aws_availability_zones" "available" {}
 
-data "aws_ecr_repository" "ipfs_ecr_repository" {
-  name = data.aws_ecr_image.ipfs_ecr.repository_name
+data "aws_ecr_repository" "solo_ecr_repository" {
+  name = data.aws_ecr_image.solo_ecr.repository_name
 }
 
-data "aws_ecr_image" "ipfs_ecr" {
+data "aws_ecr_image" "solo_ecr" {
   repository_name = "solo"
   most_recent     = true
 }
@@ -23,5 +23,5 @@ locals {
   vpc_cidr           = "10.0.0.0/16"
   availability_zones = slice(data.aws_availability_zones.available.names, 0, 3)
 
-  ecs_image = "${data.aws_ecr_repository.ipfs_ecr_repository.repository_url}:${data.aws_ecr_image.ipfs_ecr.image_tags[0]}"
+  ecs_image = "${data.aws_ecr_repository.solo_ecr_repository.repository_url}:${data.aws_ecr_image.solo_ecr.image_tags[0]}"
 }
